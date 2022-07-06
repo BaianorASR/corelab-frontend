@@ -1,14 +1,11 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo '♒ Running commitlint...'
-npx --no -- commitlint --edit 
-
-
 echo '🏗️👷 Styling and testing your project before committing'
 
-npm run check-format ||
 # Check Prettier standards
+echo '🟠 Running prettier...'
+npm run check-format ||
 (
     echo '🤢🤮🤢🤮
                 Yaaaaaccccccckkkkkkkkkk 🤢🤮🤢🤮
@@ -17,6 +14,7 @@ npm run check-format ||
 )
 
 # Check ESLint Standards
+echo '🟣 Running eslint...'
 npm run check-lint ||
 (
         echo '😤🏀👋😤 Bla Bla Bla Bla 😤🏀👋😤 
@@ -25,6 +23,7 @@ npm run check-lint ||
 )
 
 # Check tsconfig standards
+echo '🔵 Runing tsconfig...'
 npm run check-types ||
 (
     echo '🤡😂❌🤡 Failed to check the types. 🤡😂❌🤡
