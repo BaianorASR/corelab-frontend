@@ -10,8 +10,7 @@
     "check-format": "prettier --check .",
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
     "check-types": "tsc --pretty --noEmit",
-    "format": "prettier --write .",
-    "prepare": "husky install"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "next": "12.2.0",
@@ -38,8 +37,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.7.1",
     "react-is": "^18.2.0",
-    "typescript": "4.7.4",
-    "husky": "^8.0.0"
+    "typescript": "4.7.4"
   },
   "main": "index.js",
   "author": "Baianor <BaianorASR@outlook.com>",
