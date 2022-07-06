@@ -1,3 +1,5 @@
+import { OHeader } from 'atomic/organisms/OHeader';
+import { OOptions } from 'atomic/organisms/OOptions';
 import type { NextPage } from 'next';
 
 import { vehiclesApi } from '../services/api';
@@ -5,17 +7,8 @@ import { vehiclesApi } from '../services/api';
 const Home: NextPage = () => {
   return (
     <div>
-      <h1>Home</h1>
-
-      <div>
-        <label htmlFor="search">
-          Search:
-          <input type="text" id="search" />
-          <button type="button">Search</button>
-        </label>
-        <button type="button">filtro</button>
-      </div>
-
+      <OHeader />
+      <OOptions />
       <button type="button">Adicionar</button>
 
       <section>
