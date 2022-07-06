@@ -1,7 +1,10 @@
+import { IVehiclesData } from 'shared/types/IVehiclesData';
+
 import { NEXT_PUBLIC_API_URL } from '@configs/ENV';
 
-import { IVehiclesResponse } from './@types';
 import { BaseAPI } from './BaseApi';
+
+interface IVehiclesResponse extends IVehiclesData {}
 
 export class VehiclesApi extends BaseAPI {
   constructor(API_URL: string) {

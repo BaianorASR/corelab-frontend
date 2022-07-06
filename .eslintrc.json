@@ -29,6 +29,7 @@
     "no-empty-function": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
     "react/function-component-definition": "off",
     "class-methods-use-this": "off",
     "lines-between-class-members": "off",

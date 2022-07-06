@@ -1,4 +1,4 @@
-export interface IVehiclesResponse {
+export interface IVehiclesData {
   id: string;
   name: string;
   description: string;
