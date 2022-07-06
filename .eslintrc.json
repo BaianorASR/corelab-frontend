@@ -22,11 +22,41 @@
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": "error",
-    // suppress errors for missing 'import React' in files
+    "camelcase": "off",
+    "no-shadow": "off",
+    "no-console": "off",
+    "no-useless-constructor": "off",
+    "no-empty-function": "off",
     "react/react-in-jsx-scope": "off",
-    // gives warning if spread props getting passed to component ex. (...props)
     "react/jsx-props-no-spreading": "off",
-    // suppress errors for Function component is not a function declaration turning off allows us to use arrow functions
-    "react/function-component-definition": "off"
+    "react/function-component-definition": "off",
+    "class-methods-use-this": "off",
+    "lines-between-class-members": "off",
+    "@typescript-eslint/no-useless-constructor": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      }
+    ],
+    "import/no-unresolved": "error",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": ["**/*.spec.js"] }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
   }
 }

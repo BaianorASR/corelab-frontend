@@ -1,6 +1,8 @@
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
+// import { GlobalStyles } from '../styles/global';
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
@@ -39,6 +41,7 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <Main />
+          {/* <GlobalStyles /> */}
           <NextScript />
         </body>
       </Html>

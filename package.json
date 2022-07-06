@@ -11,13 +11,16 @@
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
     "check-types": "tsc --pretty --noEmit",
     "format": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "git-cz"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "next": "12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "styled-reset": "^4.4.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
