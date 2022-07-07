@@ -1,15 +1,21 @@
-import { FC, ReactNode } from 'react';
+import { FC, MouseEventHandler, ReactNode } from 'react';
 
 import * as S from './styles';
 
 type ADefaultButtonProps = {
   children: ReactNode;
-  type: 'submit' | 'button';
+  type?: 'submit' | 'button';
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
 export const ADefaultButton: FC<ADefaultButtonProps> = ({
   children,
   type = 'button',
+  onClick,
 }) => {
-  return <S.Button type={type}>{children}</S.Button>;
+  return (
+    <S.Button type={type} onClick={onClick}>
+      {children}
+    </S.Button>
+  );
 };

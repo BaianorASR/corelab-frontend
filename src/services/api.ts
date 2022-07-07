@@ -23,6 +23,7 @@ export class VehiclesApi extends BaseAPI {
 
   public async createVehicle(vehicleData: IVehiclesResponse) {
     const { data } = await this.post<IVehiclesResponse>('/', vehicleData);
+    console.log(data);
     return data;
   }
 

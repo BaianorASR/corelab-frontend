@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Input = styled.input`
-  /* padding-left: 23px; */
+  padding-left: 23px;
   font-size: 14px;
   /* line-height: 17px; */
   font-weight: 300;

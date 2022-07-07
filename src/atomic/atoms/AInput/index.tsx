@@ -4,10 +4,11 @@ import * as S from './styles';
 
 type AInputProps = {
   name: string;
+  type?: string;
 };
 
-export const AInput: React.FC<AInputProps> = ({ name }) => {
+export const AInput: React.FC<AInputProps> = ({ name, type = 'text' }) => {
   const { register } = useFormContext();
 
-  return <S.Input type="text" id="input" {...register(name)} />;
+  return <S.Input type={type} id="input" {...register(name)} />;
 };

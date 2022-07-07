@@ -1,9 +1,9 @@
-// import { ADefaultButton } from 'atomic/atoms/AButton';
-// import { OHeader } from 'atomic/organisms/OHeader';
+import { ADefaultButton } from 'atomic/atoms/AButton';
 import { OOptions } from 'atomic/organisms/OOptions';
+import { OVehicleCard } from 'atomic/organisms/OVehicleCard';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { Heart, Plus, X } from 'phosphor-react';
+import { Plus } from 'phosphor-react';
 import type { IVehiclesData } from 'shared/types/IVehiclesData';
 
 import { vehiclesApi } from '../services/api';
@@ -19,29 +19,16 @@ const Home: NextPage<HomePageProps> = ({ vehicles }) => {
     <div>
       {/* <OHeader /> */}
       <OOptions />
-      <button type="button" onClick={() => push('/create_vehicle')}>
+      <ADefaultButton type="button" onClick={() => push('/vehicle/create')}>
         <Plus size={32} weight="light" />
         ADICIONAR
-      </button>
+      </ADefaultButton>
 
       <section>
         <ul>
           {vehicles.map(vehicle => (
             <li>
-              <hr />
-              <div>
-                <div>
-                  <X size={26} weight="light" />
-                  <Heart size={26} weight="light" />
-                </div>
-                <h1>{vehicle.name}</h1>
-                <p>{vehicle.description}</p>
-                <p>{vehicle.color}</p>
-                <p>{vehicle.plate}</p>
-                <p>{vehicle.price}</p>
-                <p>{vehicle.year}</p>
-              </div>
-              <hr />
+              <OVehicleCard vehicle={vehicle} key={vehicle.id} />
             </li>
           ))}
         </ul>
