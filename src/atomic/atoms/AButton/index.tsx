@@ -4,8 +4,12 @@ import * as S from './styles';
 
 type ADefaultButtonProps = {
   children: ReactNode;
+  type: 'submit' | 'button';
 };
 
-export const ADefaultButton: FC<ADefaultButtonProps> = ({ children }) => {
-  return <S.Button type="button">{children}</S.Button>;
+export const ADefaultButton: FC<ADefaultButtonProps> = ({
+  children,
+  type = 'button',
+}) => {
+  return <S.Button type={type}>{children}</S.Button>;
 };

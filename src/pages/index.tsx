@@ -3,7 +3,7 @@
 import { OOptions } from 'atomic/organisms/OOptions';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { Heart, X } from 'phosphor-react';
+import { Heart, Plus, X } from 'phosphor-react';
 import type { IVehiclesData } from 'shared/types/IVehiclesData';
 
 import { vehiclesApi } from '../services/api';
@@ -20,6 +20,7 @@ const Home: NextPage<HomePageProps> = ({ vehicles }) => {
       {/* <OHeader /> */}
       <OOptions />
       <button type="button" onClick={() => push('/create_vehicle')}>
+        <Plus size={32} weight="light" />
         ADICIONAR
       </button>
 
