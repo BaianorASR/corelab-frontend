@@ -1,6 +1,6 @@
 import { ADefaultButton } from 'atomic/atoms/AButton';
 import { OOptions } from 'atomic/organisms/OOptions';
-import { OVehicleCard } from 'atomic/organisms/OVehicleCard';
+import { TAdsCards } from 'atomic/templates/TAdsCards';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { Plus } from 'phosphor-react';
@@ -17,22 +17,13 @@ const Home: NextPage<HomePageProps> = ({ vehicles }) => {
 
   return (
     <div>
-      {/* <OHeader /> */}
       <OOptions />
       <ADefaultButton type="button" onClick={() => push('/vehicle/create')}>
         <Plus size={32} weight="light" />
         ADICIONAR
       </ADefaultButton>
 
-      <section>
-        <ul>
-          {vehicles.map(vehicle => (
-            <li>
-              <OVehicleCard vehicle={vehicle} key={vehicle.id} />
-            </li>
-          ))}
-        </ul>
-      </section>
+      <TAdsCards vehicles={vehicles} />
 
       <footer>create by baianim</footer>
     </div>

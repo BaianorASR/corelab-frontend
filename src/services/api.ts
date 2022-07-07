@@ -32,6 +32,13 @@ export class VehiclesApi extends BaseAPI {
     if (apiResponse.status === 204) return true;
     return false;
   }
+
+  public async changeFavoriteStatus(vehicleId: string) {
+    const { data } = await this.put<{ favoriteStatus: boolean }>(
+      `/favorite/${vehicleId}`,
+    );
+    return data.favoriteStatus;
+  }
 }
 
 export const vehiclesApi = new VehiclesApi(NEXT_PUBLIC_API_URL);

@@ -1,6 +1,9 @@
-import { Heart, X } from 'phosphor-react';
+import { MCardButtons } from 'atomic/molecules/MCardButtons';
+import { MCardInfoDetails } from 'atomic/molecules/MCardIfoDetails';
 import React from 'react';
 import { IVehiclesData } from 'shared/types/IVehiclesData';
+
+import * as S from './styles';
 
 type OVehicleCardProps = {
   vehicle: IVehiclesData;
@@ -8,17 +11,16 @@ type OVehicleCardProps = {
 
 export const OVehicleCard: React.FC<OVehicleCardProps> = ({ vehicle }) => {
   return (
-    <div>
-      <div>
-        <X size={26} weight="light" />
-        <Heart size={26} weight="light" />
-      </div>
-      <h1>{vehicle.name}</h1>
-      <p>{vehicle.description}</p>
-      <p>{vehicle.color}</p>
-      <p>{vehicle.plate}</p>
-      <p>{vehicle.price}</p>
-      <p>{vehicle.year}</p>
-    </div>
+    <S.Card>
+      <MCardButtons vehicleId={vehicle.id} isFavorite={vehicle.isFavorite} />
+      <S.CardVehicleName>{vehicle.name}</S.CardVehicleName>
+      <MCardInfoDetails
+        price={vehicle.price}
+        description={vehicle.description}
+        year={vehicle.year}
+        color={vehicle.color}
+        plate={vehicle.plate}
+      />
+    </S.Card>
   );
 };

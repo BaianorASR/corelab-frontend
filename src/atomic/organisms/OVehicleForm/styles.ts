@@ -5,7 +5,7 @@ export const Form = styled.form`
   flex-direction: column;
   justify-items: center;
   height: fit-content;
-  margin: 0 40px;
+  margin: auto 40px;
   position: relative;
   box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
 

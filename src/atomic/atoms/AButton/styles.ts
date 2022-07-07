@@ -8,7 +8,7 @@ export const Button = styled.button`
   justify-content: center;
   width: 100%;
   height: 60px;
-  padding: 16px;
+  padding: 0 26px;
   font-size: 20px;
   line-height: 24px;
   font-weight: 500;

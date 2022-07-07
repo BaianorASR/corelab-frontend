@@ -6,11 +6,8 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  /* width: 1%; */
-  padding: 0 14px;
   margin: 34px auto;
   gap: 5px;
-  /* border: 1px solid red; */
 `;
 
 export const InputText = styled.input`
