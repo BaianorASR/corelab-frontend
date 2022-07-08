@@ -10,17 +10,16 @@ const CreateOrEditVehicle: NextPage = () => {
   const methods = useForm();
   const { pathname, push } = useRouter();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     const dataToCreate = {
       ...data,
       price: Number(data.price),
-      year: Number(data.year),
     };
 
     if (pathname.includes('edit')) {
       return vehiclesApi.updateVehicle(data.id, dataToCreate);
     }
-    vehiclesApi.createVehicle(dataToCreate);
+    await vehiclesApi.createVehicle(dataToCreate);
     return push('/');
   };
 

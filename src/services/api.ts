@@ -1,3 +1,4 @@
+import { IFiltersOptions } from 'shared/types/IFiltersOptions';
 import { IVehiclesData } from 'shared/types/IVehiclesData';
 
 import { NEXT_PUBLIC_API_URL } from '@configs/ENV';
@@ -23,7 +24,6 @@ export class VehiclesApi extends BaseAPI {
 
   public async createVehicle(vehicleData: IVehiclesResponse) {
     const { data } = await this.post<IVehiclesResponse>('/', vehicleData);
-    console.log(data);
     return data;
   }
 
@@ -38,6 +38,17 @@ export class VehiclesApi extends BaseAPI {
       `/favorite/${vehicleId}`,
     );
     return data.favoriteStatus;
+  }
+
+  public async getFavoriteVehicles() {
+    const { data } = await this.get<IVehiclesResponse[]>('/favorite');
+    console.log(data);
+    return data;
+  }
+
+  public async filters() {
+    const { data } = await this.get<IFiltersOptions>('/get_filters');
+    return data;
   }
 }
 

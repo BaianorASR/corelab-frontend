@@ -4,16 +4,18 @@ import { useFetch } from 'shared/hooks/useFetch';
 
 import * as S from './styles';
 
-type TAdsCardsProps = {
-  // vehicles: IVehiclesData[];
+// import { IVehiclesData } from 'shared/types/IVehiclesData';
+
+type TMyCardsProps = {
+  // myVehicles: IVehiclesData[];
 };
 
-export const TAdsCards: FC<TAdsCardsProps> = () => {
-  const { data } = useFetch('all-vehicles');
+export const TMyCards: FC<TMyCardsProps> = () => {
+  const { data } = useFetch('my-vehicles');
 
   return (
     <S.Container>
-      <h2>Anúncios</h2>
+      <h2>Meus Anúncios</h2>
       <S.CardsContainer>
         {data?.map(vehicle => (
           <li key={vehicle.id}>

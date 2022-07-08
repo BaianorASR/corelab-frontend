@@ -1,18 +1,19 @@
 import { ADefaultButton } from 'atomic/atoms/AButton';
 import { OOptions } from 'atomic/organisms/OOptions';
 import { TAdsCards } from 'atomic/templates/TAdsCards';
+import { TFavoritesCards } from 'atomic/templates/TFavoritesCards';
+import { TMyCards } from 'atomic/templates/TMyCards';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { Plus } from 'phosphor-react';
-import type { IVehiclesData } from 'shared/types/IVehiclesData';
-
-import { vehiclesApi } from '../services/api';
+import { vehiclesApi } from 'services/api';
+import { SWRConfig } from 'swr';
 
 type HomePageProps = {
-  vehicles: IVehiclesData[];
+  fallback: () => JSX.Element;
 };
 
-const Home: NextPage<HomePageProps> = ({ vehicles }) => {
+const Home: NextPage<HomePageProps> = ({ fallback }) => {
   const { push } = useRouter();
 
   return (
@@ -23,20 +24,30 @@ const Home: NextPage<HomePageProps> = ({ vehicles }) => {
         ADICIONAR
       </ADefaultButton>
 
-      <TAdsCards vehicles={vehicles} />
+      <SWRConfig value={{ fallback }}>
+        <TFavoritesCards />
+        <TMyCards />
+        <TAdsCards />
+      </SWRConfig>
 
       <footer>create by baianim</footer>
     </div>
   );
 };
 
-export const getServerSideProps = async () => {
-  const vehicles = await vehiclesApi.getAllVehicles();
+export async function getStaticProps() {
+  const allVehicles = await vehiclesApi.getAllVehicles();
+  const favorites = await vehiclesApi.getFavoriteVehicles();
+
   return {
     props: {
-      vehicles,
+      fallback: {
+        favorites,
+        allVehicles,
+        'my-vehicles': allVehicles,
+      },
     },
   };
-};
+}
 
 export default Home;
