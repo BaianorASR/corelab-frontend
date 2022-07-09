@@ -1,6 +1,9 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import { ALabel } from 'atomic/atoms/ALabel';
 import { FC } from 'react';
 import { useFormContext } from 'react-hook-form';
+
+import * as S from './styles';
 
 type MFormSelectProps = {
   label: string;
@@ -16,13 +19,14 @@ export const MFormSelect: FC<MFormSelectProps> = ({
   const { register } = useFormContext();
   return (
     <ALabel label={label}>
-      <select {...register(name)}>
+      <S.Select {...register(name)}>
+        <option value="" />
         {options.map(option => (
           <option key={option} value={option}>
             {option}
           </option>
         ))}
-      </select>
+      </S.Select>
     </ALabel>
   );
 };

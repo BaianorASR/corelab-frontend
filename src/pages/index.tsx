@@ -29,8 +29,6 @@ const Home: NextPage<HomePageProps> = ({ fallback }) => {
         <TMyCards />
         <TAdsCards />
       </SWRConfig>
-
-      <footer>create by baianim</footer>
     </div>
   );
 };

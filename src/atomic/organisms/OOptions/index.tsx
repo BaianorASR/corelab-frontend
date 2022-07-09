@@ -18,7 +18,7 @@ export const OOptions: FC = () => {
   const theme = useTheme();
 
   const notify = () =>
-    toast.error('O campo de "Busca" é obrigatório, por favor preencha-o.', {
+    toast('O campo de "Busca" é obrigatório, por favor preencha-o.', {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: false,
@@ -56,9 +56,15 @@ export const OOptions: FC = () => {
         }}
       />
       {isLoading ? (
-        <ReactLoading type="spin" color={theme.text} height={20} width={20} />
+        <ReactLoading
+          type="spin"
+          color={theme.text}
+          height={20}
+          width={20}
+          className="loading"
+        />
       ) : (
-        <S.SearchIcon weight="regular" opacity={0.8} size={20} onClick={searchVehicles} />
+        <S.SearchIcon weight="regular" opacity={0.8} size={24} onClick={searchVehicles} />
       )}
       <S.FilterIcon
         weight="light"

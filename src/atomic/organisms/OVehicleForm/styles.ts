@@ -5,7 +5,6 @@ export const Form = styled.form`
   flex-direction: column;
   justify-items: center;
   height: fit-content;
-  margin: auto 40px;
   position: relative;
   box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
 
@@ -21,19 +20,21 @@ export const Form = styled.form`
     opacity: 0.7;
   }
 
-  button {
+  .btn-default {
     margin: 42px 0 42px;
     width: fit-content;
     align-self: flex-end;
     border-radius: 9999px;
   }
 
-  span {
-    margin-left: 20px;
-  }
-
   label {
     width: 100%;
+    span {
+      margin-left: 20px;
+    }
+    input {
+      height: 45px;
+    }
   }
 `;
 
@@ -46,19 +47,17 @@ export const Content = styled.div`
   margin: 0 21px;
   margin-top: 58px;
 
-  div {
+  .content {
     display: flex;
 
+    gap: 10px;
     label {
-      display: flex;
-      align-items: center;
-
       span {
         align-self: flex-start;
       }
 
       input {
-        width: 90%;
+        width: 100%;
       }
     }
   }

@@ -1,3 +1,4 @@
+import { OFooter } from 'atomic/organisms/OFooter';
 import type { AppProps } from 'next/app';
 import { DatabaseProvider } from 'shared/contexts/SearchContext/SearchProvider';
 import { ThemeProvider } from 'styled-components';
@@ -13,6 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <GlobalStyles />
         <MainLayout>
           <Component {...pageProps} />
+          <OFooter />
         </MainLayout>
       </ThemeProvider>
     </DatabaseProvider>

@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { vehiclesApi } from 'services/api';
 import { IFiltersOptions } from 'shared/types/IFiltersOptions';
+import { FormLayout } from 'styles/layouts/FormLayout';
 
 const FilterVehicles: NextPage = () => {
   const methods = useForm();
@@ -18,12 +19,12 @@ const FilterVehicles: NextPage = () => {
   }, []);
 
   return (
-    <div>
+    <FormLayout>
       <ABackButton />
       <FormProvider {...methods}>
         {selectOptions && <OFilterForm selectOptions={selectOptions} />}
       </FormProvider>
-    </div>
+    </FormLayout>
   );
 };
 

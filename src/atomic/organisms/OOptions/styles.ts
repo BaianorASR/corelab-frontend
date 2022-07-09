@@ -9,7 +9,7 @@ export const Content = styled.div`
   margin: 34px auto;
   gap: 5px;
 
-  div {
+  .loading {
     position: absolute;
     left: 2rem;
   }
@@ -21,7 +21,7 @@ export const InputText = styled.input`
   border: none;
   border-radius: 100px;
   padding: 0 10px;
-  padding-left: 3rem;
+  padding-left: 3.5rem;
   font-size: 1rem;
   background: ${({ theme }) => theme.primary};
   filter: opacity(0.3);
@@ -41,10 +41,16 @@ export const SearchIcon = styled(MagnifyingGlass)`
   position: absolute;
   left: 2rem;
   color: ${({ theme }) => theme.text};
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const FilterIcon = styled(Sliders)`
   font-size: 2.5rem;
   color: ${({ theme }) => theme.text};
   transform: rotate(-90deg);
+  :hover {
+    cursor: pointer;
+  }
 `;

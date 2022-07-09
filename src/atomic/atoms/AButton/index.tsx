@@ -14,7 +14,7 @@ export const ADefaultButton: FC<ADefaultButtonProps> = ({
   onClick,
 }) => {
   return (
-    <S.Button type={type} onClick={onClick}>
+    <S.Button type={type} onClick={onClick} className="btn-default">
       {children}
     </S.Button>
   );

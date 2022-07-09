@@ -14,9 +14,17 @@ export const Button = styled.button`
   font-weight: 500;
   background-color: ${({ theme }) => theme.primary};
   position: relative;
+  transition: all 0.3s ease;
+
+  &:hover {
+    filter: brightness(0.8);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
 
   svg {
     position: absolute;
     left: 34px;
+    cursor: pointer;
   }
 `;

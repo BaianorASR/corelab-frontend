@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { vehiclesApi } from 'services/api';
+import { FormLayout } from 'styles/layouts/FormLayout';
 
 const CreateOrEditVehicle: NextPage = () => {
   const methods = useForm();
@@ -24,12 +25,12 @@ const CreateOrEditVehicle: NextPage = () => {
   };
 
   return (
-    <div>
+    <FormLayout>
       <ABackButton />
       <FormProvider {...methods}>
         <OVehicleForm submitFunction={onSubmit} />
       </FormProvider>
-    </div>
+    </FormLayout>
   );
 };
 

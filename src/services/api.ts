@@ -6,6 +6,13 @@ import { NEXT_PUBLIC_API_URL } from '@configs/ENV';
 import { BaseAPI } from './BaseApi';
 
 interface IVehiclesResponse extends IVehiclesData {}
+interface IFilterJSON {
+  color?: string;
+  brand?: string;
+  year?: string;
+  minPrice?: number;
+  maxPrice?: number;
+}
 
 export class VehiclesApi extends BaseAPI {
   constructor(API_URL: string) {
@@ -43,13 +50,20 @@ export class VehiclesApi extends BaseAPI {
     return data;
   }
 
+  public async getFilteredVehicles(JSON: IFilterJSON) {
+    const { data } = await this.get<IVehiclesResponse[]>('/filter', JSON);
+    return data;
+  }
+
   public async filters() {
     const { data } = await this.get<IFiltersOptions>('/get_filters');
     return data;
   }
 
   public async searchVehicles(query: string) {
-    const { data } = await this.get<IVehiclesResponse[]>(`/search?query=${query}`);
+    const { data } = await this.get<IVehiclesResponse[]>(`/search`, {
+      query,
+    });
     return data;
   }
 }

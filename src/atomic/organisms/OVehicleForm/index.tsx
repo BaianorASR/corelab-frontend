@@ -1,4 +1,5 @@
 import { ADefaultButton } from 'atomic/atoms/AButton';
+import { MColorPicker } from 'atomic/molecules/MColorPicker';
 import { MFormInput } from 'atomic/molecules/MFormInput';
 import { FC } from 'react';
 import { useFormContext } from 'react-hook-form';
@@ -18,12 +19,12 @@ export const OVehicleForm: FC<OVehicleFormProps> = ({ submitFunction }) => {
         <MFormInput label="Nome" name="name" />
         <MFormInput label="Marca" name="brand" />
         <MFormInput label="Descrição" name="description" />
-        <div>
-          <MFormInput label="Cor" name="color" />
-          <MFormInput label="Ano" name="year" type="number" />
+        <div className="">
+          <MColorPicker />
         </div>
-        <div style={{ display: 'flex' }}>
-          <MFormInput label="Placa" name="plate" />
+        <MFormInput label="Placa" name="plate" />
+        <div className="content">
+          <MFormInput label="Ano" name="year" />
           <MFormInput label="Preço" name="price" type="number" />
         </div>
         <ADefaultButton type="submit">SALVAR</ADefaultButton>
