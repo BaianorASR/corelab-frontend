@@ -3,7 +3,7 @@ import { IVehiclesData } from 'shared/types/IVehiclesData';
 import useSWR from 'swr';
 
 export function useFetch(key: string) {
-  const { data, error } = useSWR<IVehiclesData[]>(key, () => {
+  const { data, error, mutate } = useSWR<IVehiclesData[]>(key, () => {
     switch (key) {
       case 'favorites':
         return vehiclesApi.getFavoriteVehicles().then(res => res);
@@ -14,5 +14,5 @@ export function useFetch(key: string) {
     }
   });
 
-  return { data, error, isLoading: !data && !error };
+  return { data, error, isLoading: !data && !error, mutate };
 }

@@ -18,7 +18,7 @@ export class VehiclesApi extends BaseAPI {
   }
 
   public async deleteVehicleById(id: string) {
-    const apiResponse = await this.delete<IVehiclesResponse>(`/${id}`);
+    const apiResponse = await this.delete(`/${id}`);
     return apiResponse.status;
   }
 
@@ -28,26 +28,28 @@ export class VehiclesApi extends BaseAPI {
   }
 
   public async updateVehicle(vehicleId: string, vehicleData: IVehiclesResponse) {
-    const apiResponse = await this.put<IVehiclesResponse>(`/${vehicleId}`, vehicleData);
+    const apiResponse = await this.put(`/${vehicleId}`, vehicleData);
     if (apiResponse.status === 204) return true;
     return false;
   }
 
   public async changeFavoriteStatus(vehicleId: string) {
-    const { data } = await this.put<{ favoriteStatus: boolean }>(
-      `/favorite/${vehicleId}`,
-    );
-    return data.favoriteStatus;
+    const { data } = await this.put<boolean>(`/favorite/${vehicleId}`);
+    return data;
   }
 
   public async getFavoriteVehicles() {
     const { data } = await this.get<IVehiclesResponse[]>('/favorite');
-    console.log(data);
     return data;
   }
 
   public async filters() {
     const { data } = await this.get<IFiltersOptions>('/get_filters');
+    return data;
+  }
+
+  public async searchVehicles(query: string) {
+    const { data } = await this.get<IVehiclesResponse[]>(`/search?query=${query}`);
     return data;
   }
 }

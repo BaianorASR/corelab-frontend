@@ -8,6 +8,11 @@ export const Content = styled.div`
   position: relative;
   margin: 34px auto;
   gap: 5px;
+
+  div {
+    position: absolute;
+    left: 2rem;
+  }
 `;
 
 export const InputText = styled.input`

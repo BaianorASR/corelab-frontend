@@ -34,6 +34,10 @@
     "react/function-component-definition": "off",
     "class-methods-use-this": "off",
     "lines-between-class-members": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+    ],
     "@typescript-eslint/no-useless-constructor": "off",
     "@typescript-eslint/naming-convention": [
       "error",
