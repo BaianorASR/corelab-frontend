@@ -1,10 +1,8 @@
-import { useRouter } from 'next/router';
-import { CircleNotch, Heart, X } from 'phosphor-react';
-import { FC, useEffect, useState } from 'react';
-import { vehiclesApi } from 'services/api';
-import { favoriteStatus, removedData } from 'shared/helpers/mutates';
-import { IVehiclesData } from 'shared/types/IVehiclesData';
-import { mutate as mutateGlobal } from 'swr';
+import { ACardDelete } from 'atomic/atoms/ACardDelete';
+import { ACardLike } from 'atomic/atoms/ACardLike';
+import { CircleNotch } from 'phosphor-react';
+import { FC, useState } from 'react';
+import { useTheme } from 'styled-components';
 
 type MCardButtonsProps = {
   vehicleId: string;
@@ -12,72 +10,21 @@ type MCardButtonsProps = {
 };
 
 export const MCardButtons: FC<MCardButtonsProps> = ({ vehicleId, isFavorite }) => {
+  const { text } = useTheme();
   const [isFetching, setIsFetching] = useState(false);
-  const [isFavoriteState, setIsFavoriteState] = useState(isFavorite);
-  const { pathname } = useRouter();
-
-  const handleFavoriteStatus = async () => {
-    setIsFetching(true);
-
-    const bool = await vehiclesApi.changeFavoriteStatus(vehicleId);
-
-    if (pathname === '/search') {
-      setIsFetching(bool);
-      return setIsFetching(false);
-    }
-
-    mutateGlobal('favorites');
-    mutateGlobal(
-      'my-vehicles',
-      (data: IVehiclesData[]) => favoriteStatus(vehicleId, data),
-      false,
-    );
-    mutateGlobal(
-      'all-vehicles',
-      (data: IVehiclesData[]) => favoriteStatus(vehicleId, data),
-      false,
-    );
-
-    return setIsFetching(false);
-  };
-
-  useEffect(() => {
-    if (isFavoriteState !== isFavorite) setIsFavoriteState(isFavorite);
-  }, [isFavorite, isFavoriteState]);
-
-  const handleDeleteVehicle = async () => {
-    await vehiclesApi.deleteVehicleById(vehicleId);
-    await mutateGlobal('favorites');
-
-    mutateGlobal(
-      'favorites',
-      (vehiclesData: IVehiclesData[]) => removedData(vehicleId, vehiclesData),
-      false,
-    );
-    mutateGlobal(
-      'my-vehicles',
-      (vehiclesData: IVehiclesData[]) => removedData(vehicleId, vehiclesData),
-      false,
-    );
-    mutateGlobal(
-      'all-vehicles',
-      (vehiclesData: IVehiclesData[]) => removedData(vehicleId, vehiclesData),
-      false,
-    );
-  };
 
   return (
-    <div>
+    <div className="btn-cards">
       {isFetching ? (
         <CircleNotch size={26} weight="light" />
       ) : (
         <>
-          <X size={26} weight="light" onClick={handleDeleteVehicle} />
-          <Heart
-            size={26}
-            weight={isFavoriteState ? 'fill' : 'light'}
-            color="red"
-            onClick={handleFavoriteStatus}
+          <ACardDelete color={text} vehicleId={vehicleId} />
+          <ACardLike
+            color={text}
+            isFavorite={isFavorite}
+            vehicleId={vehicleId}
+            changeIsFetchingStatus={setIsFetching}
           />
         </>
       )}

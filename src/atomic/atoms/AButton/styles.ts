@@ -1,30 +1,35 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Button = styled.button`
-  border: none;
-  border-radius: 9999px;
+type ButtonProps = {
+  width?: number | 'full';
+  height?: number;
+  padding?: 'small' | 'medium' | 'large';
+};
+
+export const Button = styled.button<ButtonProps>`
+  ${({ theme, width, height, padding }) => css`
+    width: ${width === 'full' ? '100%' : `${width}px`};
+    height: ${`${height}px`};
+    padding: ${`${padding}px`};
+    background-color: ${theme.primary};
+  `}
+
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 60px;
-  padding: 0 26px;
-  font-size: 20px;
-  line-height: 24px;
+
+  border: none;
+  border-radius: 9999px;
+
+  font-size: 16px;
+  line-height: 16px;
   font-weight: 500;
-  background-color: ${({ theme }) => theme.primary};
+
   position: relative;
   transition: all 0.3s ease;
 
   &:hover {
     filter: brightness(0.8);
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-
-  svg {
-    position: absolute;
-    left: 34px;
     cursor: pointer;
   }
 `;

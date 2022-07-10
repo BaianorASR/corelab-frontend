@@ -23,10 +23,7 @@ export const FormContainer = styled.form`
   }
 
   .btn-default {
-    width: 123px;
-    height: 44px;
     align-self: flex-end;
-    font-size: 14px;
   }
 
   span {
@@ -34,8 +31,6 @@ export const FormContainer = styled.form`
   }
 
   @media (min-width: 450px) {
-    /* padding: 50px; */
-
     select {
       width: 100%;
       height: 45px;
@@ -50,13 +45,6 @@ export const Prices = styled.div`
 
   input {
     width: 100%;
-    height: 21px;
-  }
-
-  @media (min-width: 450px) {
-    input {
-      width: 100%;
-      height: 31px;
-    }
+    height: 31px;
   }
 `;

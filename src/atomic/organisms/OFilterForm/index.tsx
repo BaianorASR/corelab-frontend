@@ -34,7 +34,9 @@ export const OFilterForm: FC<OFilterFormProps> = ({ selectOptions }) => {
         <MFormInput label="Preço mín." name="minPrice" />
         <MFormInput label="Preço máx." name="maxPrice" />
       </S.Prices>
-      <ADefaultButton type="submit">SALVAR</ADefaultButton>
+      <ADefaultButton type="submit" width={125} height={50}>
+        SALVAR
+      </ADefaultButton>
     </S.FormContainer>
   );
 };

@@ -61,4 +61,13 @@ export const Content = styled.div`
       }
     }
   }
+
+  .btn-default {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
 `;

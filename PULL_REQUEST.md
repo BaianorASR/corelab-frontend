@@ -11,7 +11,7 @@ Foi proposto um desafio da CoreLab. Onde seria feito um site que seria possível
 **O usuário pode ser capaz de:**
 
 - Registrar novos anúncios
-- Editar seus anúncios
+- Editar seus anúncios - **!Não implementado**
 - Listar todos os anúncios
 - Listar anúncios favoritos
 - Filtrar anúncios pela cor, marca ou modelo

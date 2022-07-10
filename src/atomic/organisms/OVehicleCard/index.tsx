@@ -11,7 +11,7 @@ type OVehicleCardProps = {
 
 export const OVehicleCard: React.FC<OVehicleCardProps> = ({ vehicle }) => {
   return (
-    <S.Card>
+    <S.Card color={vehicle.color}>
       <MCardButtons vehicleId={vehicle.id} isFavorite={vehicle.isFavorite} />
       <S.CardVehicleName>{vehicle.name}</S.CardVehicleName>
       <MCardInfoDetails

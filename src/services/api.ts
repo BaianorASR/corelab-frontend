@@ -41,7 +41,10 @@ export class VehiclesApi extends BaseAPI {
   }
 
   public async changeFavoriteStatus(vehicleId: string) {
-    const { data } = await this.put<boolean>(`/favorite/${vehicleId}`);
+    const { data } = await this.put<{
+      message: 'Vehicle favorite status changed successfully';
+      favoriteStatus: false;
+    }>(`/favorite/${vehicleId}`);
     return data;
   }
 

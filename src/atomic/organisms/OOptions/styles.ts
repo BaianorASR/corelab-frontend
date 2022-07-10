@@ -17,7 +17,7 @@ export const Content = styled.div`
 
 export const InputText = styled.input`
   width: 100%;
-  height: 45px;
+  height: 60px;
   border: none;
   border-radius: 100px;
   padding: 0 10px;
@@ -47,7 +47,7 @@ export const SearchIcon = styled(MagnifyingGlass)`
 `;
 
 export const FilterIcon = styled(Sliders)`
-  font-size: 2.5rem;
+  font-size: 3.2rem;
   color: ${({ theme }) => theme.text};
   transform: rotate(-90deg);
   :hover {

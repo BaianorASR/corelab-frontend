@@ -17,10 +17,17 @@ const Home: NextPage<HomePageProps> = ({ fallback }) => {
   const { push } = useRouter();
 
   return (
-    <div>
+    <>
       <OOptions />
-      <ADefaultButton type="button" onClick={() => push('/vehicle/create')}>
-        <Plus size={32} weight="light" />
+      <ADefaultButton type="button" onClick={() => push('/vehicle/create')} width="full">
+        <Plus
+          size={32}
+          weight="light"
+          style={{
+            position: 'absolute',
+            left: '34px',
+          }}
+        />
         ADICIONAR
       </ADefaultButton>
 
@@ -29,7 +36,7 @@ const Home: NextPage<HomePageProps> = ({ fallback }) => {
         <TMyCards />
         <TAdsCards />
       </SWRConfig>
-    </div>
+    </>
   );
 };
 
