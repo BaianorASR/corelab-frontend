@@ -5,20 +5,13 @@ import { useRouter } from 'next/router';
 import { CircleNotch } from 'phosphor-react';
 import { FC, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import ReactLoading from 'react-loading';
 import { vehiclesApi } from 'services/api';
-import { useTheme } from 'styled-components';
 
 import * as S from './styles';
 
-type OVehicleFormProps = {
-  // submitFunction: (data: any) => void;
-};
-
-export const OVehicleForm: FC<OVehicleFormProps> = ({ submitFunction }) => {
+export const OVehicleForm: FC = () => {
   const [isloading, setIsLoading] = useState(false);
   const { handleSubmit } = useFormContext();
-  const theme = useTheme();
 
   const { pathname, push } = useRouter();
 
